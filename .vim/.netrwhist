@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/home/zpowers/Wow/Interface/AddOns/Tukui/mods/plugins'
+let g:netrw_dirhist_2='/home/zpowers/workspace/Tukui/Interface/AddOns/Tukui/scripts'
+let g:netrw_dirhist_3='/home/zpowers/workspace/Tukui/Interface/AddOns'
+let g:netrw_dirhist_4='/home/zpowers/workspace/Tukui/Interface/AddOns/Tukui/external'
+let g:netrw_dirhist_5='/home/zpowers/workspace/wow-upstream/panda-git'
+let g:netrw_dirhist_6='/home/zpowers/workspace/Tukui/Recount'
+let g:netrw_dirhist_7='/home/zpowers/workspace/wow-upstream/tradeskillmaster-svn'
+let g:netrw_dirhist_8='/home/zpowers/.bin'
+let g:netrw_dirhist_9='/home/zpowers/.wine/drive_c/Program Files/World of Warcraft/WTF/Account/ZACHARYMILYARDO/Illidan/Milyvanily/SavedVariables'
