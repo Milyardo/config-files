@@ -17,6 +17,7 @@ set shiftwidth=2
 set expandtab						"Why would anyone ever expand tabs? :(
 set smarttab
 set nobackup 						"No default backup; That's what git is for.
+set textwidth=79
 "===========================
 "Filetype Options
 "===========================
@@ -24,18 +25,26 @@ filetype on						" enable filetype detection
 autocmd FileType c,cpp,slang set cindent		" for C-like programming, have automatic indentation:
 
 
-autocmd FileType c set formatoptions+=ro		" for actual C (not C++) programming where comments have explicit end
-							" characters, if starting a new line in the middle of a comment automatically
-							" insert the comment leader characters
-
+autocmd FileType c set formatoptions+=ro		"for actual C (not C++) programming
+                                            "where comments have explicit end
+							                              " characters, if starting a new 
+                                            "line in the middle of a comment automatically
+                              							" insert the comment leader characters
 
 autocmd FileType perl set smartindent			" for Perl programming, have things
                                           "in braces indenting themselves
 
-autocmd FileType make set noexpandtab shiftwidth=8 " in makefiles, don't expand tabs to spaces, since actual tab characters are
-							" needed, and have indentation at 8 chars to be sure that all indents are tabs
-							" (despite the mappings later)
-
+autocmd FileType make set noexpandtab shiftwidth=8  " in makefiles, don't
+                                                    " expand tabs to spaces,
+                                                    " since actual tab
+                                                    " characters are needed,
+                                                    " and have indentation at 8
+                                                    " chars to be sure that all
+                                                    " indents are tabs
+                                                    " (despite the mappings
+                                                    " later)
+autocmd FileType html set textwidth=0 " set no textwrapping on HTML files.
+autocmd FileType xhtml set textwidth=0 " same thing for xhtml
 "=============================
 "Search Options
 "=============================
@@ -67,3 +76,11 @@ set number
 echo "Mouse usage enabled"
 endif
 endfunction
+
+"=============================
+" OmniComplete
+"=============================
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS

@@ -1,3 +1,6 @@
 [submodule "clang_complete"]
 	path = clang_complete
 	url = https://github.com/Rip-Rip/clang_complete.git
+[submodule ".vim/bundle/jslint.vim"]
+	path = .vim/bundle/jslint.vim
+	url = git@github.com:joestelmach/lint.vim.git
