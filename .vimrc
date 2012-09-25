@@ -10,6 +10,7 @@ set ofu=syntaxcomplete#Complete
 "==========================
 "Vim UI Options
 "==========================
+colorscheme default
 syntax on               "Turn on Syntax Highlighting
 set number              "Turn on Line Numbering
 set nowrap              "No line wrapping
@@ -110,3 +111,11 @@ autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bu
 "=============================
 let g:tagbar_usearrows = 1
 nnoremap <leader>l :TagbarToggle<CR>
+"Indent Guide Color Options
+"===========================
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=8
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=darkgrey
+"Run stuff on open
+autocmd VimEnter * :TagbarToggle
+autocmd VimEnter * :IndentGuidesEnable
