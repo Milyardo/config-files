@@ -1,4 +1,13 @@
 "==========================
+"Pathogen Init
+"==========================
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+"==========================
+"Vim OmniComplete
+"==========================
+set ofu=syntaxcomplete#Complete
+"==========================
 "Vim UI Options
 "==========================
 syntax on               "Turn on Syntax Highlighting
@@ -65,17 +74,16 @@ set tags=tags;
 
 "=============================
 "Enable and disable mouse use
-
 "=============================
 noremap <f12> :call ToggleMouse() <CR>
 function! ToggleMouse()
 if &mouse == 'a'
 set mouse=
-set nonumber
+set number
 echo "Mouse usage disabled"
 else
 set mouse=a
-set number
+set nonumber
 echo "Mouse usage enabled"
 endif
 endfunction
@@ -86,3 +94,19 @@ autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+"=============================
+"Command-T Bindings
+"=============================
+noremap <leader>o <Esc>:CommandT<CR>
+noremap <leader>O <Esc>:CommandTFlush<CR>
+noremap <leader>m <Esc>:CommandTBuffer<CR>
+"=============================
+" Close Tag support
+"=============================
+autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
+autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bundle/closetag.vim/plugin/closetag.vim
+"=============================
+" TagBar Binding
+"=============================
+let g:tagbar_usearrows = 1
+nnoremap <leader>l :TagbarToggle<CR>

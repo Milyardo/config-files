@@ -1,0 +1,1 @@
+/home/zpowers/workspace/vim-config/vim-pathogen/autoload/pathogen.vim
