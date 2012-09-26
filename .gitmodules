@@ -37,6 +37,3 @@
 [submodule ".vim/bundle/flashdevelop.vim"]
 	path = .vim/bundle/flashdevelop.vim
 	url = https://github.com/endel/actionscript.vim.git
-[submodule ".vim/bundle/easytags"]
-	path = .vim/bundle/easytags
-	url = https://github.com/xolox/vim-easytags.git

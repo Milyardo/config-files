@@ -120,9 +120,9 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=darkgrey
 "Run stuff on open
 autocmd VimEnter * :TagbarToggle
 autocmd VimEnter * :IndentGuidesEnable
-
 "============================
-"Tag Options
+"TagFile Options
 "============================
-let $PWD=system('pwd')
-autocmd FileType java set tags=$HOME/tags/$PWD.javatags
+set tags=tags;,~/.vimtags
+let g:easytags_dynamic_files = 1
+let g:easytags_auto_update = 0
