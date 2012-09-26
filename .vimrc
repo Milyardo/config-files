@@ -106,16 +106,23 @@ noremap <leader>m <Esc>:CommandTBuffer<CR>
 "=============================
 autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
 autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bundle/closetag.vim/plugin/closetag.vim
-"=============================
+"============================
 " TagBar Binding
-"=============================
+"============================
 let g:tagbar_usearrows = 1
 nnoremap <leader>l :TagbarToggle<CR>
+"============================
 "Indent Guide Color Options
-"===========================
+"============================
 let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=8
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=darkgrey
 "Run stuff on open
 autocmd VimEnter * :TagbarToggle
 autocmd VimEnter * :IndentGuidesEnable
+
+"============================
+"Tag Options
+"============================
+let $PWD=system('pwd')
+autocmd FileType java set tags=$HOME/tags/$PWD.javatags
