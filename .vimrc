@@ -69,11 +69,6 @@ set hls             "Highlight searched terms
 " assume the /g flag on :s substitutions to replace all matches in a line:
 set gdefault
 "=============================
-"Generate ctags and show taglist
-"=============================
-set tags=tags;
-
-"=============================
 "Enable and disable mouse use
 "=============================
 noremap <f12> :call ToggleMouse() <CR>
@@ -157,7 +152,7 @@ let g:SrcExpl_pluginList = [
 "Enable/Disable the local definition searching, and note that this is not 
 "guaranteed to work, the Source Explorer doesn't check the syntax for now. 
 "It only searches for a match with the keyword according to command 'gd' 
-let g:SrcExpl_searchLocalDef = 1 
+let g:SrcExpl_searchLocalDef = 0 
 
 "Do not let the Source Explorer update the tags file when opening 
 let g:SrcExpl_isUpdateTags = 0 
