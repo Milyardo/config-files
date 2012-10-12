@@ -40,3 +40,6 @@
 [submodule ".vim/bundle/srcexpl.vim"]
 	path = .vim/bundle/srcexpl.vim
 	url = https://github.com/wesleyche/SrcExpl.git
+[submodule ".vim/bundle/solarized.vim"]
+	path = .vim/bundle/solarized.vim
+	url = https://github.com/altercation/vim-colors-solarized.git

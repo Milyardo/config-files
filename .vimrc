@@ -10,8 +10,9 @@ set ofu=syntaxcomplete#Complete
 "==========================
 "Vim UI Options
 "==========================
-colorscheme default
 syntax on               "Turn on Syntax Highlighting
+set background=dark     "Self explanatory
+colorscheme solarized   "Use solarized
 set number              "Turn on Line Numbering
 set nowrap              "No line wrapping
 set ruler               "Set cursor position in vim status line
@@ -58,6 +59,7 @@ autocmd FileType make set noexpandtab shiftwidth=8  " in makefiles, don't
                                                     " later)
 autocmd FileType html set textwidth=0 " set no textwrapping on HTML files.
 autocmd FileType xhtml set textwidth=0 " same thing for xhtml
+autocmd Filetype jsp set textwidth=0 "More HTML like files
 "=============================
 "Search Options
 "=============================
