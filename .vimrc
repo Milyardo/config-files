@@ -32,6 +32,7 @@ set tw=79               "Text wrapping is nice
 set incsearch           "Incrementtal Search
 set cursorline          "Highlight the current line that the cursor is on.
 set clipboard+=unnamedplus  "Use the system clipboard as well
+set switchbuf=useopen    "Use already open buffers when swiching
 "===========================
 "Filetype Options
 "===========================
@@ -107,7 +108,8 @@ autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bu
 " TagBar Binding
 "============================
 let g:tagbar_usearrows = 1
-nnoremap <leader>l :TagbarToggle<CR>
+noremap <leader>l :TagbarToggle<CR>
+noremap <leader>[ :sbuffer __Tagbar__<CR>
 "============================
 "Indent Guide Color Options
 "============================
@@ -117,6 +119,7 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=darkgrey
 "Run stuff on open
 autocmd VimEnter * :TagbarToggle
 autocmd VimEnter * :IndentGuidesEnable
+autocmd VimEnter * :SrcExplToggle
 "============================
 "TagFile Options
 "============================
@@ -127,8 +130,9 @@ let g:easytags_auto_update = 0
 "Src Explorer Options
 "============================
 "The switch of the Source Explorer 
-nmap <leader>] :SrcExplToggle<CR> 
-
+noremap <leader>k :SrcExplToggle<CR> 
+"Focus SrcExpl when pressed
+noremap <leader>] :sbuffer Source_Explorer<CR>
 "Set the height of Source Explorer window 
 let g:SrcExpl_winHeight = 8 
 
@@ -164,4 +168,4 @@ let g:SrcExpl_isUpdateTags = 0
 let g:SrcExpl_updateTagsCmd = "ctags --sort=foldcase -R ." 
 
 "Set "<F12>" key for updating the tags file artificially 
-let g:SrcExpl_updateTagsKey = "<leader>["
+let g:SrcExpl_updateTagsKey = "<leader>'"
