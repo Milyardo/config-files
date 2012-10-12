@@ -37,3 +37,9 @@
 [submodule ".vim/bundle/flashdevelop.vim"]
 	path = .vim/bundle/flashdevelop.vim
 	url = https://github.com/endel/actionscript.vim.git
+[submodule ".vim/bundle/wowlua.vim"]
+	path = .vim/bundle/wowlua.vim
+	url = git://github.com/yaroot/wowlua.vim.git
+[submodule ".vim/bundle/SrcExplr.vim"]
+	path = .vim/bundle/SrcExplr.vim
+	url = https://github.com/wesleyche/SrcExpl.git
