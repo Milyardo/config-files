@@ -33,6 +33,7 @@ set incsearch           "Incrementtal Search
 set cursorline          "Highlight the current line that the cursor is on.
 set clipboard+=unnamedplus  "Use the system clipboard as well
 set switchbuf=useopen    "Use already open buffers when swiching
+nnoremap ZZ :wqall<CR>
 "===========================
 "Filetype Options
 "===========================
@@ -169,3 +170,8 @@ let g:SrcExpl_updateTagsCmd = "ctags --sort=foldcase -R ."
 
 "Set "<F12>" key for updating the tags file artificially 
 let g:SrcExpl_updateTagsKey = "<leader>'"
+"============================
+"Blame mappers
+"============================
+vmap <Leader>g :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR> 
+vmap <Leader>h :<C-U>!hg blame -fu <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
