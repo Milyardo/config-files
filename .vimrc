@@ -33,6 +33,8 @@ set incsearch           "Incrementtal Search
 set cursorline          "Highlight the current line that the cursor is on.
 set clipboard+=unnamedplus  "Use the system clipboard as well
 set switchbuf=useopen    "Use already open buffers when swiching
+"Ignore a few files.
+set wildignore+=*.o,*.class,*.obj,.git,.hg,**/target/**
 nnoremap ZZ :wqall<CR>
 "===========================
 "Filetype Options
@@ -95,11 +97,12 @@ autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 "=============================
-"Command-T Bindings
+"Command-T Options
 "=============================
 noremap <leader>o <Esc>:CommandT<CR>
 noremap <leader>O <Esc>:CommandTFlush<CR>
 noremap <leader>m <Esc>:CommandTBuffer<CR>
+
 "=============================
 " Close Tag support
 "=============================
