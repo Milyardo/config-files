@@ -28,7 +28,6 @@ set shiftwidth=2        "Shift Width
 set expandtab           "Why would anyone ever expand tabs? :(
 set smarttab            "SmartTab for Smart People
 set nobackup            "No default backup; That's what git is for.
-set tw=79               "Text wrapping is nice
 set incsearch           "Incrementtal Search
 set cursorline          "Highlight the current line that the cursor is on.
 set clipboard+=unnamedplus  "Use the system clipboard as well
@@ -64,6 +63,8 @@ autocmd FileType make set noexpandtab shiftwidth=8  " in makefiles, don't
 autocmd FileType html set textwidth=0 " set no textwrapping on HTML files.
 autocmd FileType xhtml set textwidth=0 " same thing for xhtml
 autocmd Filetype jsp set textwidth=0 "More HTML like files
+
+autocmd FileType java set textwidth=79 "I like text wrapping in Java.
 "=============================
 "Search Options
 "=============================
@@ -169,7 +170,7 @@ let g:SrcExpl_isUpdateTags = 0
 
 "Use 'Exuberant Ctags' with '--sort=foldcase -R .' or '-L cscope.files' to 
 "create/update a tags file 
-let g:SrcExpl_updateTagsCmd = "ctags --sort=foldcase -R ." 
+let g:SrcExpl_updateTagsCmd = "ctags --sort=foldcase --totals=yes --exclude=deploy/* --exclude=*/target/* -R ."
 
 "Set "<F12>" key for updating the tags file artificially 
 let g:SrcExpl_updateTagsKey = "<leader>'"
