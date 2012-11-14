@@ -12,7 +12,6 @@ set ofu=syntaxcomplete#Complete
 "==========================
 syntax on               "Turn on Syntax Highlighting
 set background=dark     "Self explanatory
-colorscheme solarized   "Use solarized
 set number              "Turn on Line Numbering
 set nowrap              "No line wrapping
 set ruler               "Set cursor position in vim status line
