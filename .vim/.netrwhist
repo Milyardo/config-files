@@ -1,5 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/home/zpowers/Documents/workspace/cpxp/webapp/src/main/webapp/static/scripts/getsatisfaction'
-let g:netrw_dirhist_2='/home/zpowers/Documents/workspace/cpxp/.hg/store/data/webapp/src/main/webapp/static/bootstrap/docs/build/node__modules/hogan.js'
-let g:netrw_dirhist_3='/home/zpowers/Documents/workspace/cpxp/.hg/store/dh/webapp/src/main/webapp/static/bootstra/docs/build/node_mod/hogan.js'
