@@ -179,3 +179,7 @@ let g:SrcExpl_updateTagsKey = "<leader>'"
 "============================
 vmap <Leader>g :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR> 
 vmap <Leader>h :<C-U>!hg blame -fu <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
+"============================
+"NERDTree Options
+"============================
+autocmd vimenter * NERDTree   "Open NERDTre when vim starts up
