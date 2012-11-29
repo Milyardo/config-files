@@ -74,6 +74,7 @@ set hls             "Highlight searched terms
 
 " assume the /g flag on :s substitutions to replace all matches in a line:
 set gdefault
+autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
 "=============================
 "Enable and disable mouse use
 "=============================
