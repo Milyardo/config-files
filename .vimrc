@@ -1,3 +1,4 @@
+set nocompatible        "VIM over Vi
 "==========================
 "Pathogen Init
 "==========================
@@ -12,6 +13,7 @@ set ofu=syntaxcomplete#Complete
 "==========================
 syntax on               "Turn on Syntax Highlighting
 set background=dark     "Self explanatory
+colorscheme solarized
 set number              "Turn on Line Numbering
 set nowrap              "No line wrapping
 set ruler               "Set cursor position in vim status line
@@ -19,7 +21,6 @@ set is                  "Turn on in search mode
 set showmode            "Show Current mode in the status bar
 set showcmd             "Show partially-typed commands in the status line
 set mouse-=a            "Disable Mouse
-set nocompatible        "VIM over Vi
 set undolevels=1500     "how many times the user can undo
 set sidescrolloff=3     "space between cursor and terminal side
 set tabstop=2           "tab width
