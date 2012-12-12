@@ -156,7 +156,7 @@ let g:SrcExpl_gobackKey = "<SPACE>"
 "according to the command ":buffers!" 
 let g:SrcExpl_pluginList = [ 
         \ "__Tagbar__", 
-        \ "_NERD_tree_", 
+        \ "_NERD_tree_1", 
         \ "Source_Explorer",
         \  "GoToFile" 
     \ ]
