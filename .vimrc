@@ -1,3 +1,4 @@
+set nocompatible        "VIM over Vi
 "==========================
 "Pathogen Init
 "==========================
@@ -10,8 +11,9 @@ set ofu=syntaxcomplete#Complete
 "==========================
 "Vim UI Options
 "==========================
-colorscheme default
 syntax on               "Turn on Syntax Highlighting
+set background=dark     "Self explanatory
+colorscheme solarized
 set number              "Turn on Line Numbering
 set nowrap              "No line wrapping
 set ruler               "Set cursor position in vim status line
@@ -19,7 +21,6 @@ set is                  "Turn on in search mode
 set showmode            "Show Current mode in the status bar
 set showcmd             "Show partially-typed commands in the status line
 set mouse-=a            "Disable Mouse
-set nocompatible        "VIM over Vi
 set undolevels=1500     "how many times the user can undo
 set sidescrolloff=3     "space between cursor and terminal side
 set tabstop=2           "tab width
@@ -27,10 +28,13 @@ set shiftwidth=2        "Shift Width
 set expandtab           "Why would anyone ever expand tabs? :(
 set smarttab            "SmartTab for Smart People
 set nobackup            "No default backup; That's what git is for.
-set tw=79               "Text wrapping is nice
 set incsearch           "Incrementtal Search
 set cursorline          "Highlight the current line that the cursor is on.
 set clipboard+=unnamedplus  "Use the system clipboard as well
+set switchbuf=useopen    "Use already open buffers when swiching
+"Ignore a few files.
+set wildignore+=*.o,*.class,*.obj,.git,.hg,**/target/**
+nnoremap ZZ :wqall<CR>
 "===========================
 "Filetype Options
 "===========================
@@ -58,6 +62,9 @@ autocmd FileType make set noexpandtab shiftwidth=8  " in makefiles, don't
                                                     " later)
 autocmd FileType html set textwidth=0 " set no textwrapping on HTML files.
 autocmd FileType xhtml set textwidth=0 " same thing for xhtml
+autocmd Filetype jsp set textwidth=0 "More HTML like files
+
+autocmd FileType java set textwidth=79 "I like text wrapping in Java.
 "=============================
 "Search Options
 "=============================
@@ -68,11 +75,7 @@ set hls             "Highlight searched terms
 
 " assume the /g flag on :s substitutions to replace all matches in a line:
 set gdefault
-"=============================
-"Generate ctags and show taglist
-"=============================
-set tags=tags;
-
+autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
 "=============================
 "Enable and disable mouse use
 "=============================
@@ -96,11 +99,12 @@ autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 "=============================
-"Command-T Bindings
+"Command-T Options
 "=============================
 noremap <leader>o <Esc>:CommandT<CR>
 noremap <leader>O <Esc>:CommandTFlush<CR>
 noremap <leader>m <Esc>:CommandTBuffer<CR>
+
 "=============================
 " Close Tag support
 "=============================
@@ -110,7 +114,8 @@ autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bu
 " TagBar Binding
 "============================
 let g:tagbar_usearrows = 1
-nnoremap <leader>l :TagbarToggle<CR>
+noremap <leader>l :TagbarToggle<CR>
+noremap <leader>[ :sbuffer __Tagbar__<CR>
 "============================
 "Indent Guide Color Options
 "============================
@@ -120,6 +125,7 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=darkgrey
 "Run stuff on open
 autocmd VimEnter * :TagbarToggle
 autocmd VimEnter * :IndentGuidesEnable
+autocmd VimEnter * :SrcExplToggle
 "============================
 "TagFile Options
 "============================
@@ -127,33 +133,54 @@ set tags=tags;,~/.vimtags
 let g:easytags_dynamic_files = 1
 let g:easytags_auto_update = 0
 "============================
-"PretyXML Function
+"Src Explorer Options
 "============================
-function! DoPrettyXML()
-  " save the filetype so we can restore it later
-  let l:origft = &ft
-  set ft=
-  " delete the xml header if it exists. This will
-  " permit us to surround the document with fake tags
-  " without creating invalid xml.
-  1s/<?xml .*?>//e
-  " insert fake tags around the entire document.
-  " This will permit us to pretty-format excerpts of
-  " XML that may contain multiple top-level elements.
-  0put ='<PrettyXML>'
-  $put ='</PrettyXML>PrettyXML>'
-  silent %!xmllint --format -
-  " xmllint will insert an <?xml?> header. it's easy enough to delete
-  " if you don't want it.
-  " delete the fake tags
-  2d
-  $d
-  " restore the 'normal' indentation, which is one extra level
-  " too deep due to the extra tags we wrapped around the document.
-  silent %<
-  " back to home
-  1
-  " restore the filetype
-  exe "set ft=" . l:origft
-endfunction
-command! PrettyXML call DoPrettyXML()
+"The switch of the Source Explorer 
+noremap <leader>k :SrcExplToggle<CR> 
+"Focus SrcExpl when pressed
+noremap <leader>] :sbuffer Source_Explorer<CR>
+"Set the height of Source Explorer window 
+let g:SrcExpl_winHeight = 8 
+
+"Set 100 ms for refreshing the Source Explorer 
+let g:SrcExpl_refreshTime = 100 
+
+"Set "Enter" key to jump into the exact definition context 
+let g:SrcExpl_jumpKey = "<ENTER>" 
+
+"Set "Space" key for back from the definition context 
+let g:SrcExpl_gobackKey = "<SPACE>" 
+
+"In order to Avoid conflicts, the Source Explorer should know what plugins 
+"are using buffers. And you need add their bufname into the list below 
+"according to the command ":buffers!" 
+let g:SrcExpl_pluginList = [ 
+        \ "__Tagbar__", 
+        \ "_NERD_tree_1", 
+        \ "Source_Explorer",
+        \  "GoToFile" 
+    \ ]
+
+"Enable/Disable the local definition searching, and note that this is not 
+"guaranteed to work, the Source Explorer doesn't check the syntax for now. 
+"It only searches for a match with the keyword according to command 'gd' 
+let g:SrcExpl_searchLocalDef = 0 
+
+"Do not let the Source Explorer update the tags file when opening 
+let g:SrcExpl_isUpdateTags = 0 
+
+"Use 'Exuberant Ctags' with '--sort=foldcase -R .' or '-L cscope.files' to 
+"create/update a tags file 
+let g:SrcExpl_updateTagsCmd = "ctags --sort=foldcase --totals=yes --exclude=deploy/* --exclude=*/target/* -R ."
+
+"Set "<F12>" key for updating the tags file artificially 
+let g:SrcExpl_updateTagsKey = "<leader>'"
+"============================
+"Blame mappers
+"============================
+vmap <Leader>g :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR> 
+vmap <Leader>h :<C-U>!hg blame -fu <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
+"============================
+"NERDTree Options
+"============================
+autocmd vimenter * NERDTree   "Open NERDTre when vim starts up
