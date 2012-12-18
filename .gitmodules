@@ -46,3 +46,9 @@
 [submodule ".vim/bundle/nerdtree.vim"]
 	path = .vim/bundle/nerdtree.vim
 	url = https://github.com/scrooloose/nerdtree.git
+[submodule ".vim/bundle/solarized.vim"]
+  path = .vim/bundle/solarized.vim
+  url = https://github.com/altercation/vim-colors-solarized
+[submodule ".vim/bundle/wowlua.vim"]
+  path = .vim/bundle/wowlua.vim
+  url = https://github.com/yaroot/wowlua.vim
