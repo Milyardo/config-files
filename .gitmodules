@@ -28,9 +28,6 @@
 [submodule ".vim/bundle/indent-guides.vim"]
 	path = .vim/bundle/indent-guides.vim
 	url = git://github.com/nathanaelkane/vim-indent-guides.git
-[submodule ".vim/bundle/javacomplete.vim"]
-	path = .vim/bundle/javacomplete.vim
-	url = https://github.com/vim-scripts/javacomplete.git
 [submodule ".vim/bundle/fugitive"]
 	path = .vim/bundle/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
