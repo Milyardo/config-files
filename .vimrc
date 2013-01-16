@@ -20,7 +20,7 @@ set ruler               "Set cursor position in vim status line
 set is                  "Turn on in search mode
 set showmode            "Show Current mode in the status bar
 set showcmd             "Show partially-typed commands in the status line
-set mouse-=a            "Disable Mouse
+set mouse=a             "Disable Mouse
 set undolevels=1500     "how many times the user can undo
 set sidescrolloff=3     "space between cursor and terminal side
 set tabstop=2           "tab width
@@ -81,14 +81,9 @@ autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<c
 "=============================
 noremap <f12> :call ToggleMouse() <CR>
 function! ToggleMouse()
-if &mouse == 'a'
-set mouse=
 set number
-echo "Mouse usage disabled"
 else
-set mouse=a
 set nonumber
-echo "Mouse usage enabled"
 endif
 endfunction
 "=============================
