@@ -32,6 +32,8 @@ set incsearch           "Incrementtal Search
 set cursorline          "Highlight the current line that the cursor is on.
 set clipboard+=unnamedplus  "Use the system clipboard as well
 set switchbuf=useopen    "Use already open buffers when swiching
+set encoding=utf8        "UTF-8 all the time, every time
+set cc=80
 "Ignore a few files.
 set wildignore+=*.o,*.class,*.obj,.git,.hg,**/target/**
 nnoremap ZZ :wqall<CR>
@@ -168,7 +170,7 @@ let g:SrcExpl_isUpdateTags = 0
 "create/update a tags file 
 let g:SrcExpl_updateTagsCmd = "ctags --sort=foldcase --totals=yes --exclude=deploy/* --exclude=*/target/* -R ."
 
-"Set "<F12>" key for updating the tags file artificially 
+"Set "<leader>'" key for updating the tags file artificially 
 let g:SrcExpl_updateTagsKey = "<leader>'"
 "============================
 "Blame mappers
@@ -178,4 +180,5 @@ vmap <Leader>h :<C-U>!hg blame -fu <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line
 "============================
 "NERDTree Options
 "============================
-autocmd vimenter * NERDTree   "Open NERDTre when vim starts up
+let NERDTreeHightlightCursorline=1
+nmap <leader>n :NERDTreeToggle<cr>
