@@ -28,9 +28,6 @@
 [submodule ".vim/bundle/indent-guides.vim"]
 	path = .vim/bundle/indent-guides.vim
 	url = git://github.com/nathanaelkane/vim-indent-guides.git
-[submodule ".vim/bundle/javacomplete.vim"]
-	path = .vim/bundle/javacomplete.vim
-	url = https://github.com/vim-scripts/javacomplete.git
 [submodule ".vim/bundle/fugitive"]
 	path = .vim/bundle/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
@@ -52,3 +49,9 @@
 [submodule ".vim/bundle/wowlua.vim"]
   path = .vim/bundle/wowlua.vim
   url = https://github.com/yaroot/wowlua.vim
+[submodule ".vim/bundle/fizzyfinder.vim"]
+	path = .vim/bundle/fizzyfinder.vim
+	url = https://github.com/vim-scripts/FuzzyFinder
+[submodule ".vim/bundle/l9.vim"]
+	path = .vim/bundle/l9.vim
+	url = https://github.com/vim-scripts/L9.git
