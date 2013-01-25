@@ -33,6 +33,7 @@ set clipboard+=unnamedplus  "Use the system clipboard as well
 set switchbuf=useopen    "Use already open buffers when swiching
 set encoding=utf8        "UTF-8 all the time, every time
 set cc=80
+set noautochdir          "Don't Automatically change directories"
 "Ignore a few files.
 set wildignore+=*.o,*.class,*.obj,.git,.hg,**/target/**
 nnoremap ZZ :wqall<CR>
