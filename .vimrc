@@ -29,7 +29,7 @@ set smarttab            "SmartTab for Smart People
 set nobackup            "No default backup; That's what git is for.
 set incsearch           "Incrementtal Search
 set cursorline          "Highlight the current line that the cursor is on.
-set clipboard+=unnamedplus  "Use the system clipboard as well
+set clipboard=unnamedplus  "Use the system clipboard as well
 set switchbuf=useopen    "Use already open buffers when swiching
 set encoding=utf8        "UTF-8 all the time, every time
 set cc=80
@@ -39,28 +39,28 @@ nnoremap ZZ :wqall<CR>
 "===========================
 "Filetype Options
 "===========================
-filetype on           " enable filetype detection
+filetype plugin indent on           " enable filetype detection
 autocmd FileType c,cpp,slang set cindent    " for C-like programming, have automatic indentation:
 
 
 autocmd FileType c set formatoptions+=ro    "for actual C (not C++) programming
-                                            "where comments have explicit end
-                                            " characters, if starting a new 
-                                            "line in the middle of a comment automatically
-                                            " insert the comment leader characters
+"where comments have explicit end
+" characters, if starting a new 
+"line in the middle of a comment automatically
+" insert the comment leader characters
 
 autocmd FileType perl set smartindent     " for Perl programming, have things
-                                          "in braces indenting themselves
+"in braces indenting themselves
 
 autocmd FileType make set noexpandtab shiftwidth=8  " in makefiles, don't
-                                                    " expand tabs to spaces,
-                                                    " since actual tab
-                                                    " characters are needed,
-                                                    " and have indentation at 8
-                                                    " chars to be sure that all
-                                                    " indents are tabs
-                                                    " (despite the mappings
-                                                    " later)
+" expand tabs to spaces,
+" since actual tab
+" characters are needed,
+" and have indentation at 8
+" chars to be sure that all
+" indents are tabs
+" (despite the mappings
+" later)
 autocmd FileType html set textwidth=0 " set no textwrapping on HTML files.
 autocmd FileType xhtml set textwidth=0 " same thing for xhtml
 autocmd Filetype jsp set textwidth=0 "More HTML like files
@@ -82,9 +82,9 @@ autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<c
 "=============================
 noremap <f12> :call ToggleMouse() <CR>
 function! ToggleMouse()
-set number
+  set number
 else
-set nonumber
+  set nonumber
 endif
 endfunction
 "=============================
@@ -151,11 +151,11 @@ let g:SrcExpl_gobackKey = "<SPACE>"
 "are using buffers. And you need add their bufname into the list below 
 "according to the command ":buffers!" 
 let g:SrcExpl_pluginList = [ 
-        \ "__Tagbar__", 
-        \ "_NERD_tree_1", 
-        \ "Source_Explorer",
-        \  "GoToFile" 
-    \ ]
+      \ "__Tagbar__", 
+      \ "_NERD_tree_1", 
+      \ "Source_Explorer",
+      \  "GoToFile" 
+      \ ]
 
 "Enable/Disable the local definition searching, and note that this is not 
 "guaranteed to work, the Source Explorer doesn't check the syntax for now. 
@@ -181,3 +181,18 @@ vmap <Leader>h :<C-U>!hg blame -fu <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line
 "============================
 let NERDTreeHightlightCursorline=1
 nmap <leader>n :NERDTreeToggle<cr>
+"============================
+"Disable replace mode
+"Perhaps in the furture I could remap this
+"feature to a different key.
+""===========================
+function s:ForbidReplace()
+  if v:insertmode!=#'i'
+    call feedkeys("\<Insert>", "n")
+  endif
+endfunction
+augroup ForbidReplaceMode
+  autocmd!
+  autocmd InsertEnter  * call s:ForbidReplace()
+  autocmd InsertChange * call s:ForbidReplace()
+augroup END
