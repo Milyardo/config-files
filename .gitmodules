@@ -58,3 +58,9 @@
 [submodule ".vim/bundle/yavdb.vim"]
 	path = .vim/bundle/yavdb.vim
 	url = https://github.com/vim-scripts/yavdb.git
+[submodule ".vim/bundle/javacomplete.vim"]
+	path = .vim/bundle/javacomplete.vim
+	url = https://github.com/vim-scripts/javacomplete
+[submodule ".vim/bundle/easytags.vim"]
+	path = .vim/bundle/easytags.vim
+	url = https://github.com/vim-scripts/easytags.vim.git

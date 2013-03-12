@@ -4,10 +4,6 @@ set nocompatible        "VIM over Vi
 "==========================
 execute pathogen#infect()
 "==========================
-"Vim OmniComplete
-"==========================
-set ofu=syntaxcomplete#Complete
-"==========================
 "Vim UI Options
 "==========================
 syntax on               "Turn on Syntax Highlighting
@@ -33,9 +29,13 @@ set clipboard=unnamedplus  "Use the system clipboard as well
 set switchbuf=useopen    "Use already open buffers when swiching
 set encoding=utf8        "UTF-8 all the time, every time
 set cc=80
+set updatetime=4000     "Set the minimum update time to play nice with easytags.
 "Ignore a few files.
 set wildignore+=*.o,*.class,*.obj,.git,.hg,**/target/**
 nnoremap ZZ :wqall<CR>
+if $COLORTERM == 'gnome-terminal' "Gnome Terminal doesn't advertise 256colors.
+    set t_Co=256
+endif
 "===========================
 "Filetype Options
 "===========================
@@ -90,10 +90,30 @@ endfunction
 "=============================
 " OmniComplete
 "=============================
-autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd Filetype java setlocal omnifunc=javacomplete#Complete "AutoCompletion for Java
+autocmd FileType java setlocal completefunc=javacomplete#CompleteParamsInfo "Param completion for Java
+inoremap <C-Space> <C-x><C-o>
+inoremap <C-@> <C-Space>
+noremap <leader>j <Esc>:call javacomplete#SetClassPath(GetMavenClassPath()) <CR>
+function! GetMavenClassPath()
+  let mvn_classpath_output = split(system('mvn dependency:build-classpath'),"\n")
+  let mvn_classpath = ''
+  let class_path_next = 0
+  for line in mvn_classpath_output
+    if class_path_next == 1
+      let mvn_classpath .= line . ':'
+      let class_path_next = 0
+    endif
+    if match(line,'Dependencies classpath:') >= 0
+      let class_path_next = 1
+    endif
+  endfor
+  return mvn_classpath
+endfunction
 "=============================
 "Command-T Options
 "=============================
@@ -119,15 +139,15 @@ let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=8
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=darkgrey
 "Run stuff on open
-autocmd VimEnter * :TagbarToggle
 autocmd VimEnter * :IndentGuidesEnable
-autocmd VimEnter * :SrcExplToggle
 "============================
 "TagFile Options
 "============================
 set tags=tags;,~/.vimtags
 let g:easytags_dynamic_files = 1
-let g:easytags_auto_update = 0
+let g:easytags_auto_update = 1
+let g:easytags_python_enabled = 1
+autocmd FileType java let b:easytags_auto_highlight = 1
 "============================
 "Src Explorer Options
 "============================
@@ -167,7 +187,7 @@ let g:SrcExpl_isUpdateTags = 0
 
 "Use 'Exuberant Ctags' with '--sort=foldcase -R .' or '-L cscope.files' to 
 "create/update a tags file 
-let g:SrcExpl_updateTagsCmd = "ctags --sort=foldcase --totals=yes --exclude=deploy/* --exclude=*/target/* -R ."
+let g:SrcExpl_updateTagsCmd = "ctags --sort=foldcase --totals=yes --exclude=deploy/* --exclude=*/target/* --exclude=*.js --exclude=*.jsp -R ."
 
 "Set "<leader>'" key for updating the tags file artificially 
 let g:SrcExpl_updateTagsKey = "<leader>'"
