@@ -18,8 +18,8 @@ set showcmd             "Show partially-typed commands in the status line
 set mouse=a             "Disable Mouse
 set undolevels=1500     "how many times the user can undo
 set sidescrolloff=3     "space between cursor and terminal side
-set tabstop=2           "tab width
-set shiftwidth=2        "Shift Width
+set tabstop=4           "tab width
+set shiftwidth=4        "Shift Width
 set expandtab           "Why would anyone ever expand tabs? :(
 set smarttab            "SmartTab for Smart People
 set nobackup            "No default backup; That's what git is for.
@@ -30,6 +30,7 @@ set switchbuf=useopen    "Use already open buffers when swiching
 set encoding=utf8        "UTF-8 all the time, every time
 set cc=80
 set updatetime=4000     "Set the minimum update time to play nice with easytags.
+set noautochdir          "Don't Automatically change directories"
 "Ignore a few files.
 set wildignore+=*.o,*.class,*.obj,.git,.hg,**/target/**
 nnoremap ZZ :wqall<CR>
