@@ -2,38 +2,38 @@
 	path = vim/pathogen
 	url = https://github.com/tpope/vim-pathogen.git
 [submodule "vim/bundle/autocomplpop.vim"]
-	path = vim/bundle/autocomplpop.vim
+	path = vim/dot-vim/bundle/autocomplpop.vim
 	url = https://github.com/vim-scripts/AutoComplPop.git
 [submodule "vim/bundle/closetag.vim"]
-	path = vim/bundle/closetag.vim
+	path = vim/dot-vim/bundle/closetag.vim
 	url = https://github.com/vim-scripts/closetag.vim.git
 [submodule "vim/bundle/command-t.vim"]
-	path = vim/bundle/command-t.vim
+	path = vim/dot-vim/bundle/command-t.vim
 	url = https://github.com/wincent/Command-T.git
 [submodule "vim/bundle/delimitmate.vim"]
-	path = vim/bundle/delimitmate.vim
+	path = vim/dot-vim/bundle/delimitmate.vim
 	url = https://github.com/vim-scripts/delimitMate.vim.git
 [submodule "vim/bundle/easytags.vim"]
-	path = vim/bundle/easytags.vim
+	path = vim/dot-vim/bundle/easytags.vim
 	url = https://github.com/xolox/vim-easytags.git
 [submodule "vim/bundle/fuzzyfinder.vim"]
-	path = vim/bundle/fuzzyfinder.vim
+	path = vim/dot-vim/bundle/fuzzyfinder.vim
 	url = https://github.com/vim-scripts/FuzzyFinder.git
 [submodule "vim/bundle/indent-guides.vim"]
-	path = vim/bundle/indent-guides.vim
+	path = vim/dot-vim/bundle/indent-guides.vim
 	url = https://github.com/nathanaelkane/vim-indent-guides.git
 [submodule "vim/bundle/l9.vim"]
-	path = vim/bundle/l9.vim
+	path = vim/dot-vim/bundle/l9.vim
 	url = https://github.com/vim-scripts/L9.git
 [submodule "vim/bundle/nerdtree.vim"]
-	path = vim/bundle/nerdtree.vim
+	path = vim/dot-vim/bundle/nerdtree.vim
 	url = https://github.com/scrooloose/nerdtree.git
 [submodule "vim/bundle/scala.vim"]
-	path = vim/bundle/scala.vim
+	path = vim/dot-vim/bundle/scala.vim
 	url = https://github.com/derekwyatt/vim-scala.git
-[submodule "vim/bundle/solarized.vim"]
+[submodule "vim/dot-vim/bundle/solarized.vim"]
 	path = vim/bundle/solarized.vim
 	url = https://github.com/altercation/vim-colors-solarized.git
-[submodule "vim/bundle/tagbar.vim"]
+[submodule "vim/dot-vim/bundle/tagbar.vim"]
 	path = vim/bundle/tagbar.vim
 	url = https://github.com/majutsushi/tagbar.git
