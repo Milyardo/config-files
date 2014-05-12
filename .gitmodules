@@ -7,9 +7,6 @@
 [submodule "vim/bundle/closetag.vim"]
 	path = vim/dot-vim/bundle/closetag.vim
 	url = https://github.com/vim-scripts/closetag.vim.git
-[submodule "vim/bundle/command-t.vim"]
-	path = vim/dot-vim/bundle/command-t.vim
-	url = https://github.com/wincent/Command-T.git
 [submodule "vim/bundle/delimitmate.vim"]
 	path = vim/dot-vim/bundle/delimitmate.vim
 	url = https://github.com/vim-scripts/delimitMate.vim.git
@@ -37,3 +34,6 @@
 [submodule "vim/dot-vim/bundle/tagbar.vim"]
 	path = vim/bundle/tagbar.vim
 	url = https://github.com/majutsushi/tagbar.git
+[submodule "vim/dot-vim/bundle/ctrlp.vim"]
+	path = vim/dot-vim/bundle/ctrlp.vim
+	url = https://github.com/kien/ctrlp.vim.git
