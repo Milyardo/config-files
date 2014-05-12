@@ -29,10 +29,10 @@
 	path = vim/dot-vim/bundle/scala.vim
 	url = https://github.com/derekwyatt/vim-scala.git
 [submodule "vim/dot-vim/bundle/solarized.vim"]
-	path = vim/bundle/solarized.vim
+	path = vim/dot-vim/bundle/solarized.vim
 	url = https://github.com/altercation/vim-colors-solarized.git
 [submodule "vim/dot-vim/bundle/tagbar.vim"]
-	path = vim/bundle/tagbar.vim
+	path = vim/dot-vim/bundle/tagbar.vim
 	url = https://github.com/majutsushi/tagbar.git
 [submodule "vim/dot-vim/bundle/ctrlp.vim"]
 	path = vim/dot-vim/bundle/ctrlp.vim
