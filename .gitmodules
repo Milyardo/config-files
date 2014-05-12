@@ -1,5 +1,5 @@
 [submodule "vim-pathogen"]
-	path = vim-pathogen
+	path = vim/pathogen
 	url = https://github.com/tpope/vim-pathogen.git
 [submodule "vim/bundle/autocomplpop.vim"]
 	path = vim/bundle/autocomplpop.vim
